@@ -7,7 +7,7 @@ object WordCount {
   
   def main(args: Array[String]) = {
     
-    System.setProperty("hadoop.home.dir", "C:\\winutil\\");
+   // System.setProperty("hadoop.home.dir", "C:\\winutil\\"); >> this is just for local machine
     
     val conf = new SparkConf()
       .setAppName("WordCount")
