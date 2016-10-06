@@ -16,7 +16,7 @@ object WordCount {
     
     val inputfile = sc.textFile("input.txt")
     inputfile.flatMap (_.split(" "))
-    .filter(x => x.matches("[a-zA-Z-0-9]+"))
+   // .filter(x => x.matches("[a-zA-Z-0-9]+")) //jillah revised (allow symbols)
     
     .map { word =>
       ( word , 1 )
@@ -24,6 +24,7 @@ object WordCount {
     }
     
     .reduceByKey(_ + _)
+   .sortByKey()//jillah revised
     .saveAsTextFile("input.result.txt")
     
     sc.stop
